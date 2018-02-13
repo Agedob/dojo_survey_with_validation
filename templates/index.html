@@ -8,7 +8,14 @@
 </head>
 <body>
     <p>Enter your name</p>
-    <form method="post" action="/proccess">
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p style="color: red">{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form method="post" action="/process">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="location" placeholder="location">
         <input type="text" name="lang" placeholder="lang">
